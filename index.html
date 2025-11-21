@@ -1,70 +1,34 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RecheSphere | Captación de clientes predecible</title>
-    <meta name="description" content="Agencia Meta Ads. Consigue clientes predecibles con campañas que funcionan." />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              display: ['Poppins', 'sans-serif'],
-            },
-            colors: {
-              primary: '#0B72FF',
-              secondary: '#111827',
-              accent: '#00D4B8',
-              neutral: {
-                50: '#F8FAFC',
-                100: '#E6EEF8',
-              }
-            }
-          }
-        }
-      }
-    </script>
-    <style>
-      body {
-        background-color: #F8FAFC;
-        color: #111827;
-      }
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #94a3b8;
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
-  }
-}
-</script>
-</head>
-  <body>
-    <div id="root"></div>
-  </body>
-</html>
+
+import React from 'react';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import MetaAdsPage from './pages/MetaAdsPage';
+import FunnelsPage from './pages/FunnelsPage';
+import SocialGrowthPage from './pages/SocialGrowthPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import ChatBot from './components/UI/ChatBot';
+
+// In a larger app, we would have separate pages for Services, Legal, etc.
+// For this SPA request, we route everything to Home or specific placeholders.
+const App: React.FC = () => {
+  return (
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/meta-ads" element={<MetaAdsPage />} />
+        <Route path="/embudos" element={<FunnelsPage />} />
+        <Route path="/gestion-estrategica" element={<SocialGrowthPage />} />
+        <Route path="/sobre" element={<AboutPage />} />
+        <Route path="/contacto" element={<ContactPage />} />
+        {/* Fallback routes */}
+        <Route path="*" element={<Home />} />
+      </Routes>
+      
+      {/* ChatBot global component */}
+      <ChatBot />
+    </HashRouter>
+  );
+};
+
+export default App;
