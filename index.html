@@ -1,34 +1,39 @@
+/public
+  └── index.html
 
-import React from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import MetaAdsPage from './pages/MetaAdsPage';
-import FunnelsPage from './pages/FunnelsPage';
-import SocialGrowthPage from './pages/SocialGrowthPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import ChatBot from './components/UI/ChatBot';
+/src
+  /components
+    /Layout
+      ├── Footer.tsx
+      └── Header.tsx
+    /Sections
+      ├── Hero.tsx
+      ├── Process.tsx
+      ├── Services.tsx
+      ├── Testimonials.tsx
+      ├── TestimonialSpotlight.tsx
+      └── VideoSection.tsx
+    /UI
+      ├── Button.tsx
+      ├── LeadForm.tsx
+      └── Modal.tsx
 
-// In a larger app, we would have separate pages for Services, Legal, etc.
-// For this SPA request, we route everything to Home or specific placeholders.
-const App: React.FC = () => {
-  return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/meta-ads" element={<MetaAdsPage />} />
-        <Route path="/embudos" element={<FunnelsPage />} />
-        <Route path="/gestion-estrategica" element={<SocialGrowthPage />} />
-        <Route path="/sobre" element={<AboutPage />} />
-        <Route path="/contacto" element={<ContactPage />} />
-        {/* Fallback routes */}
-        <Route path="*" element={<Home />} />
-      </Routes>
-      
-      {/* ChatBot global component */}
-      <ChatBot />
-    </HashRouter>
-  );
-};
+  /pages
+    ├── AboutPage.tsx
+    ├── ContactPage.tsx
+    ├── Home.tsx
+    ├── FunnelsPage.tsx
+    ├── MetaAdsPage.tsx
+    └── SocialGrowthPage.tsx
 
-export default App;
+  ├── App.tsx
+  ├── constants.ts
+  ├── index.tsx
+  ├── types.ts
+  └── index.css (opcional si tienes estilos extras)
+.gitignore
+metadata.json
+package.json
+README.md
+tsconfig.json
+vite.config.ts
